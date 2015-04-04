@@ -1,0 +1,54 @@
+#include<iostream>
+using std::cout; using std::endl;
+#include "bistack.h"
+#include <string>
+using namespace std;
+
+int main() {
+    BiStack<string> bs_l(32,4);
+    cout << bs_l << endl;
+    bs_l.push1("hello");
+    bs_l.push2("Jack");
+    bs_l.push1("world");
+    bs_l.push2("is");
+    bs_l.push1("my");
+    bs_l.push2("name");
+
+    BiStack<string> bs_l2;
+    bs_l2 = bs_l;
+    cout<< bs_l2<< endl;
+    
+    try{
+	for(int i=1; i<16; i++){
+	    bs_l2.push1("no");
+	    bs_l2.push2("no");
+	}
+    }
+    catch (runtime_error err){
+	cout << "stack hit the max. Real error msg follows"<<endl;
+	cout << err.what() << endl;
+    }
+    
+    cout << bs_l << endl;
+    
+    cout << "top1 val:"<<bs_l.top1()<<endl;
+    cout << "top2 val:"<<bs_l.top2()<<endl;
+
+    
+    for(int i=0; i< 3; i++)
+	bs_l.pop2();
+    cout << "top1 val:"<<bs_l.top1()<<endl;
+    cout << "top2 val:"<<bs_l.top2()<<endl;    
+    cout << bs_l << endl;
+
+    
+    try{
+	bs_l.pop2();
+    }
+    catch (runtime_error err){
+	cout << "stack empty 2. Real error msg follows"<<endl;
+	cout << err.what() << endl;
+    }
+     
+    
+}
