@@ -1,2 +1,2 @@
-# Jack-s-algorithms
+# Jack-Algorithms
 These are algorithms written in C++
